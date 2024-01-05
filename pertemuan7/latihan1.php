@@ -33,26 +33,26 @@ $films = [
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Associative Array</title>
+    <title>GET</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <h1>AK_Film</h1>
-    <?php foreach($films as $film) : ?>
+    <?php foreach ($films as $film): ?>
         <ul>
-            <div class="card">
-                <img src="assets/<?= $film['img'] ?>" height="200">
-                <li><?= $film["title"] ?></li>
-                <li><?= $film["director"] ?></li>
-                <li><?= $film["genre"] ?></li>
-                <li><?= $film["imdb"] ?></li>
-                <li><?= $film["actor"] ?></li>
-            </div>
+            <li>
+                <a
+                    href="latihan2.php?title=<?= $film["title"] ?>&director=<?= $film["director"] ?>&genre=<?= $film["genre"] ?>&imdb=<?= $film["imdb"] ?>&actor=<?= $film["actor"] ?>&img=<?= $film["img"] ?>">
+                    <?= $film["title"] ?>
+                </a>
+            </li>
         </ul>
     <?php endforeach; ?>
 </body>
+
 </html>

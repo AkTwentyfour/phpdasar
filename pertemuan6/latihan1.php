@@ -45,7 +45,7 @@ $films = [
     <?php foreach($films as $film) : ?>
         <ul>
             <div class="card">
-                <img src="assets/<?= $film['img'] ?>" height="200">
+                <img src="../assets/<?= $film['img'] ?>" height="200">
                 <li><?= $film["title"] ?></li>
                 <li><?= $film["director"] ?></li>
                 <li><?= $film["genre"] ?></li>
