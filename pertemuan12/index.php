@@ -60,42 +60,47 @@ if (isset($_POST["submit"])) {
         <h1 class="text-danger fw-bold text-center">
             <?= $notFound ?>
         </h1>
-        <div class="accordion w-50" id="filmList">
-            <?php foreach ($films as $film): ?>
-                <div class="accordion-item">
-                    <h2 class="accordion-header d-flex justify-content-center align-items-center">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse<?= $film["id"] ?>" aria-expanded="false"
-                            aria-controls="collapse<?= $film["id"] ?>">
-                            <?= $film["title"] ?>
-                        </button>
-                        <div class="ms-auto d-flex gap-2 p-2">
-                            <a href="delete.php?id=<?= $film["id"] ?>" class="btn btn-danger text-light"
-                                onclick="return confirm('Are you sure want to delete this film ?')">Delete</a>
-                            <a href="update.php?id=<?= $film["id"] ?>" class="btn btn-success text-light">Edit</a>
-                        </div>
-                    </h2>
-                    <div id="collapse<?= $film["id"] ?>" class="accordion-collapse collapse" data-bs-parent="#filmList">
-                        <div class="accordion-body">
-                            <ul class="d-flex flex-column gap-2">
-                                <li><img src="../assets/<?= $film["img"] ?>" height="200"></li>
-                                <li>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="accordion" id="filmList">
+                    <?php foreach ($films as $film): ?>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header d-flex justify-content-center align-items-center">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse<?= $film["id"] ?>" aria-expanded="false"
+                                    aria-controls="collapse<?= $film["id"] ?>">
                                     <?= $film["title"] ?>
-                                </li>
-                                <li>
-                                    <?= $film["director"] ?>
-                                </li>
-                                <li>
-                                    <?= $film["genre"] ?>
-                                </li>
-                                <li>
-                                    <?= $film["actor"] ?>
-                                </li>
-                            </ul>
+                                </button>
+                                <div class="ms-auto d-flex gap-2 p-2">
+                                    <a href="delete.php?id=<?= $film["id"] ?>" class="btn btn-danger text-light"
+                                        onclick="return confirm('Are you sure want to delete this film ?')">Delete</a>
+                                    <a href="update.php?id=<?= $film["id"] ?>" class="btn btn-success text-light">Edit</a>
+                                </div>
+                            </h2>
+                            <div id="collapse<?= $film["id"] ?>" class="accordion-collapse collapse"
+                                data-bs-parent="#filmList">
+                                <div class="accordion-body">
+                                    <ul class="d-flex flex-column gap-2">
+                                        <li><img src="../assets/<?= $film["img"] ?>" height="200"></li>
+                                        <li>
+                                            <?= $film["title"] ?>
+                                        </li>
+                                        <li>
+                                            <?= $film["director"] ?>
+                                        </li>
+                                        <li>
+                                            <?= $film["genre"] ?>
+                                        </li>
+                                        <li>
+                                            <?= $film["actor"] ?>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
     </div>
 
